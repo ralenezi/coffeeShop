@@ -1,16 +1,7 @@
 import './App.css'
-import items from './items'
+import Item from './components/Item'
 import styles from './styles'
 function App() {
-  const itemList = items.map((item) => (
-    <span style={styles.divStyle} key={item.id}>
-      <img style={styles.itemImage} alt={item.name} src={item.image} />
-      <div>
-        <h4>{item.name}</h4>
-        <p>{item.price} </p>
-      </div>
-    </span>
-  ))
   return (
     <div>
       <h1 style={styles.text}>The ultimate Coffee shop ☕️</h1>
@@ -21,7 +12,7 @@ function App() {
         alt='coffee shop'
       />
       <h3 style={{ margin: '10px' }}>Items we're selling</h3>
-      {itemList}
+      <Item />
     </div>
   )
 }
