@@ -1,6 +1,7 @@
 import './App.css'
 import Item from './components/Item'
 import styles from './styles'
+import styled from 'styled-components'
 function App() {
   return (
     <div>
