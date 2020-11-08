@@ -1,6 +1,8 @@
-import './App.css'
 import { useState } from 'react'
-import Item from './components/Item'
+//components
+import Item from './components/Item.jsx'
+//styles
+// import './App.css'
 import { ListWrapper, GlobalStyle, ThemeButton } from './styles'
 import { ThemeProvider } from 'styled-components'
 const theme = {
@@ -37,6 +39,7 @@ function App() {
         />
       </ListWrapper>
       <h3 style={{ margin: '10px' }}>Items we're selling</h3>
+
       <Item />
     </ThemeProvider>
   )

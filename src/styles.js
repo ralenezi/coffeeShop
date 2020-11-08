@@ -1,12 +1,12 @@
 import styled, { createGlobalStyle } from 'styled-components'
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   body {
     color: ${(props) => props.theme.headingColor};
     background-color: ${(props) => props.theme.backgroundColor}
     
   }
 `
-const ListWrapper = styled.div`
+export const ListWrapper = styled.div`
   img {
     width: 40%;
     display: block;
@@ -21,7 +21,7 @@ const ListWrapper = styled.div`
     text-align: center;
   }
 `
-const ItemImage = styled.img`
+export const ItemImage = styled.img`
   width: 15%;
   height: 15%;
   border-radius: 50%;
@@ -52,4 +52,9 @@ export const ThemeButton = styled.button`
   cursor: pointer;
   color: ${(props) => props.theme.backgroundColor};
 `
-export { ListWrapper, ItemImage, GlobalStyle }
+export const Input = styled.input`
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 70%;
+`
