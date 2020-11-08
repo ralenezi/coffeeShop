@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
   body {
-    color: #000007;
+    color: ${(props) => props.theme.headingColor};
     background-color: ${(props) => props.theme.backgroundColor}
     
   }
@@ -41,5 +41,15 @@ export const ItemWrapper = styled.span`
   h4 {
     color: ${(props) => props.theme.titleColor};
   }
+`
+export const ThemeButton = styled.button`
+  font-size: 1em;
+  margin: 1.25em;
+  background: none;
+  border: none;
+  height: 2em;
+  width: 2em;
+  cursor: pointer;
+  color: ${(props) => props.theme.backgroundColor};
 `
 export { ListWrapper, ItemImage, GlobalStyle }

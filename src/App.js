@@ -1,17 +1,33 @@
 import './App.css'
+import { useState } from 'react'
 import Item from './components/Item'
-import { ListWrapper, GlobalStyle } from './styles'
+import { ListWrapper, GlobalStyle, ThemeButton } from './styles'
 import { ThemeProvider } from 'styled-components'
 const theme = {
-  titleColor: '#023047',
-  backgroundColor: '#FAFAFA',
-  priceColor: '#8d99ae',
+  light: {
+    titleColor: '#023047',
+    backgroundColor: '#FAFAFA',
+    priceColor: '#8d99ae',
+    headingColor: '#000007',
+  },
+  dark: {
+    titleColor: '#fefafb', // main font color
+    backgroundColor: '#242424', // main background color
+    priceColor: '#ff85a2',
+    headingColor: 'papayawhip',
+  },
 }
 
 function App() {
+  const [currentTheme, setCurrentTheme] = useState('light')
+  const toggleTheme = () =>
+    setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light')
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
+      <ThemeButton onClick={toggleTheme}>
+        {currentTheme === 'light' ? '🌞' : '🌚'}
+      </ThemeButton>
       <ListWrapper>
         <h1>The ultimate Coffee shop ☕️</h1>
         <h3>We have everything a coffee needs</h3>
