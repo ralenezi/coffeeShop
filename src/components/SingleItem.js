@@ -1,19 +1,15 @@
-import styles from '../styles'
+import { ItemWrapper, ItemImage } from '../styles'
 
 const SingleItem = (props) => {
   return (
     <div>
-      <span style={styles.divStyle}>
-        <img
-          style={styles.itemImage}
-          alt={props.itemObject.name}
-          src={props.itemObject.image}
-        />
+      <ItemWrapper>
+        <ItemImage alt={props.itemObject.name} src={props.itemObject.image} />
         <div>
           <h4>{props.itemObject.name}</h4>
           <p>{props.itemObject.price} </p>
         </div>
-      </span>
+      </ItemWrapper>
     </div>
   )
 }
