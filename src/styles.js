@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     
   }
 `
+//before the components, header and shop's photo
 export const ListWrapper = styled.div`
   img {
     width: 40%;
@@ -14,20 +15,19 @@ export const ListWrapper = styled.div`
     margin-right: auto;
     margin-bottom: 15px;
   }
-
   h1,
-  h3,
-  h4 {
+  h3 {
     text-align: center;
   }
 `
+//items images
 export const ItemImage = styled.img`
   width: 15%;
   height: 15%;
   border-radius: 50%;
   margin: 10px;
 `
-
+// the div that wraps item image, name and price
 export const ItemWrapper = styled.span`
   display: flex;
   color: black;
@@ -42,9 +42,10 @@ export const ItemWrapper = styled.span`
     color: ${(props) => props.theme.titleColor};
   }
 `
+//for the dark mode button
 export const ThemeButton = styled.button`
-  font-size: 1em;
-  margin: 1.25em;
+  font-size: 1.5em;
+  margin: 1em;
   background: none;
   border: none;
   height: 2em;
@@ -52,9 +53,23 @@ export const ThemeButton = styled.button`
   cursor: pointer;
   color: ${(props) => props.theme.backgroundColor};
 `
+//search bar
 export const Input = styled.input`
   padding: 0.5rem;
   margin: 1rem auto;
   display: block;
   width: 70%;
+`
+//detail page
+export const DetailWrapper = styled.div`
+  margin: 20px;
+  img {
+    height: 200px;
+    float: left;
+  }
+  div {
+    margin: 30px;
+    display: inline-flex;
+    flex-direction: column;
+  }
 `

@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import items from './items'
 //components
-import Item from './components/Item.jsx'
+import ItemList from './components/ItemList.jsx'
+import ItemDetail from './components/ItemDetail.jsx'
 //styles
-// import './App.css'
 import { ListWrapper, GlobalStyle, ThemeButton } from './styles'
 import { ThemeProvider } from 'styled-components'
 const theme = {
@@ -24,6 +25,12 @@ function App() {
   const [currentTheme, setCurrentTheme] = useState('light')
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light')
+
+  //
+  const [item, setItem] = useState(null)
+  //
+  const setView = () =>
+    item ? <ItemDetail item={item} /> : <ItemList setItem={setItem} />
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
@@ -39,8 +46,8 @@ function App() {
         />
       </ListWrapper>
       <h3 style={{ margin: '10px' }}>Items we're selling</h3>
-
-      <Item />
+      <ThemeButton onClick={() => setItem()}>🔙</ThemeButton>
+      {setView()}
     </ThemeProvider>
   )
 }

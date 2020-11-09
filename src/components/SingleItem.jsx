@@ -4,7 +4,11 @@ const SingleItem = (props) => {
   return (
     <div>
       <ItemWrapper>
-        <ItemImage alt={props.itemObject.name} src={props.itemObject.image} />
+        <ItemImage
+          onClick={() => props.setItem(props.itemObject)}
+          alt={props.itemObject.name}
+          src={props.itemObject.image}
+        />
         <div>
           <h4>{props.itemObject.name}</h4>
           <p>{props.itemObject.price} </p>
