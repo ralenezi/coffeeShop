@@ -28,9 +28,19 @@ function App() {
 
   //
   const [item, setItem] = useState(null)
-  //
+
+  //deleting
+  const [itemz, setItemz] = useState(items)
+  const deleteItem = (itemID) =>
+    setItemz(itemz.filter((item) => item.id !== itemID))
+
+  //view
   const setView = () =>
-    item ? <ItemDetail item={item} /> : <ItemList setItem={setItem} />
+    item ? (
+      <ItemDetail item={item} deleteItem={deleteItem} setItem={setItem} />
+    ) : (
+      <ItemList setItem={setItem} itemz={itemz} deleteItem={deleteItem} />
+    )
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />

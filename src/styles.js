@@ -27,7 +27,7 @@ export const ItemImage = styled.img`
   border-radius: 50%;
   margin: 10px;
 `
-// the div that wraps item image, name and price
+// single item style.. item image, name and price
 export const ItemWrapper = styled.span`
   display: flex;
   color: black;
@@ -41,6 +41,17 @@ export const ItemWrapper = styled.span`
   h4 {
     color: ${(props) => props.theme.titleColor};
   }
+  span {
+    margin-right: 5%;
+    margin-left: auto;
+  }
+`
+//delete button
+export const Del = styled.h3`
+  font-size: xx-large;
+  margin-right: 5%;
+  margin-left: auto;
+  cursor: pointer;
 `
 //for the dark mode button
 export const ThemeButton = styled.button`
