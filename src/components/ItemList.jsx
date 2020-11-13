@@ -19,10 +19,10 @@ const ItemList = (props) => {
     ))
 
   return (
-    <>
+    <div className='container'>
       <SearchBar query={setQuery}></SearchBar>
-      {itemList}
-    </>
+      <div>{itemList}</div>
+    </div>
   )
 }
 

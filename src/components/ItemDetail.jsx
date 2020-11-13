@@ -1,23 +1,28 @@
 import React from 'react'
+import { Redirect, useParams } from 'react-router'
 import { DetailWrapper } from '../styles'
 import DeleteButton from './buttons/DeleteButton'
 
 const ItemDetail = (props) => {
+  // const item = props.items[0]
   const handleDelete = (itemID) => {
     props.deleteItem(itemID)
     props.setItem()
   }
-
+  //params thing
+  const itemSlug = useParams().itemSlug
+  const item = props.items.find((item) => item.slug === itemSlug)
+  if (!item) return <Redirect to='/items' />
   return (
     <DetailWrapper>
-      <h1>{props.item.name}</h1>
+      <h1>{item.name}</h1>
 
-      <img src={props.item.image} alt={props.item.name} />
+      <img src={item.image} alt={item.id} />
       <div>
-        <p>{props.item.description}</p>
-        <p>{props.item.price}$</p>
+        <p>{item.description}</p>
+        <p>{item.price}$</p>
       </div>
-      <DeleteButton id={props.item.id} deleteItem={handleDelete} />
+      <DeleteButton id={item.id} deleteItem={handleDelete} />
     </DetailWrapper>
   )
 }

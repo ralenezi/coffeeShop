@@ -1,11 +1,15 @@
 import { useState } from 'react'
+import { Route, Switch } from 'react-router'
+//data
 import items from './items'
 //components
 import ItemList from './components/ItemList.jsx'
 import ItemDetail from './components/ItemDetail.jsx'
 //styles
-import { ListWrapper, GlobalStyle, ThemeButton } from './styles'
+import { GlobalStyle } from './styles'
 import { ThemeProvider } from 'styled-components'
+import Home from './components/Home'
+import NavBar from './components/NavBar'
 const theme = {
   light: {
     titleColor: '#023047',
@@ -34,30 +38,21 @@ function App() {
   const deleteItem = (itemID) =>
     setItemz(itemz.filter((item) => item.id !== itemID))
 
-  //view
-  const setView = () =>
-    item ? (
-      <ItemDetail item={item} deleteItem={deleteItem} setItem={setItem} />
-    ) : (
-      <ItemList setItem={setItem} itemz={itemz} deleteItem={deleteItem} />
-    )
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-      <ThemeButton onClick={toggleTheme}>
-        {currentTheme === 'light' ? '🌞' : '🌚'}
-      </ThemeButton>
-      <ListWrapper>
-        <h1>The ultimate Coffee shop ☕️</h1>
-        <h3>We have everything a coffee needs</h3>
-        <img
-          src='https://cdn2.f-cdn.com/contestentries/1157178/23836476/59f05d51e9719_thumb900.jpg'
-          alt='coffee shop'
-        />
-      </ListWrapper>
-      <h3 style={{ margin: '10px' }}>Items we're selling</h3>
-      <ThemeButton onClick={() => setItem()}>🔙</ThemeButton>
-      {setView()}
+      <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme}></NavBar>
+      <Switch>
+        <Route exact path='/items'>
+          <ItemList setItem={setItemz} itemz={itemz} deleteItem={deleteItem} />
+        </Route>
+        <Route path='/items/:itemSlug'>
+          <ItemDetail items={itemz} deleteItem={deleteItem} setItem={setItem} />
+        </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
+      </Switch>
     </ThemeProvider>
   )
 }

@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import { Link, NavLink } from 'react-router-dom'
 export const GlobalStyle = createGlobalStyle`
   body {
     color: ${(props) => props.theme.headingColor};
@@ -22,10 +23,11 @@ export const ListWrapper = styled.div`
 `
 //items images
 export const ItemImage = styled.img`
-  width: 15%;
-  height: 15%;
+  width: 170px;
+  height: 170px;
   border-radius: 50%;
   margin: 10px;
+  object-fit: cover;
 `
 // single item style.. item image, name and price
 export const ItemWrapper = styled.span`
@@ -82,5 +84,30 @@ export const DetailWrapper = styled.div`
     margin: 30px;
     display: inline-flex;
     flex-direction: column;
+  }
+`
+//link for logos
+export const Logo = styled(Link)`
+  img {
+    background: none;
+    border: none;
+    height: 2em;
+    width: 2em;
+  }
+`
+//navbar
+export const NavStyled = styled.nav`
+  background-color: ___CSS_0___;
+`
+export const NavItem = styled(NavLink)`
+  margin: 2.2em;
+  color: ${(props) => props.theme.headingColor};
+
+  &.active {
+    color: ${(props) => props.theme.priceColor};
+  }
+  &.aaa:hover {
+    color: pink;
+    text-decoration: none;
   }
 `

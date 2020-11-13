@@ -2,6 +2,7 @@ const cookies = [
   {
     id: 0,
     name: 'Coffee',
+    slug: 'coffee',
     price: 12.99,
     description: 'This coffee has more caffine than you think!',
     image:
@@ -10,6 +11,7 @@ const cookies = [
   {
     id: 1,
     name: 'Water',
+    slug: 'water',
     price: 10.99,
     description: 'Most expensive water ever',
 
@@ -18,6 +20,7 @@ const cookies = [
   {
     id: 2,
     name: 'Cookies',
+    slug: 'cookies',
     price: 11.99,
     description: 'Not for the weak ones. Too addictive.',
 
