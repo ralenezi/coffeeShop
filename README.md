@@ -1,1 +1,3 @@
-# My awesome coffee shop 
+# My awesome coffee shop
+
+## Check it out at http://ralenezi.github.io/coffeeShop
