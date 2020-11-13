@@ -4,7 +4,7 @@
 
 ### Steps:
 
-<li> npm install gh-pages --save-dev </li>
+<li> run <code> npm install gh-pages --save-dev </code></li>
 <li>add to package.json:
 <code>"homepage": "http://{username}.github.io/{repo-name}"</code>
 </li>
