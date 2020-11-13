@@ -50,7 +50,7 @@ function App() {
           <ItemDetail items={itemz} deleteItem={deleteItem} setItem={setItem} />
         </Route>
         <Route path='/'>
-          <Home />
+          <Home setItem={setItemz} itemz={itemz} deleteItem={deleteItem} />
         </Route>
       </Switch>
     </ThemeProvider>

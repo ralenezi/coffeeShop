@@ -1,7 +1,8 @@
 import React from 'react'
 import { ListWrapper } from '../styles'
+import ItemList from './ItemList'
 
-const Home = () => {
+const Home = ({ setItem, itemz, deleteItem }) => {
   return (
     <div>
       <ListWrapper>
@@ -13,6 +14,10 @@ const Home = () => {
         />
       </ListWrapper>
       <h3 style={{ margin: '10px' }}>Items we're selling</h3>
+      <ItemList
+        setItem={setItem}
+        itemz={itemz}
+        deleteItem={deleteItem}></ItemList>
     </div>
   )
 }
