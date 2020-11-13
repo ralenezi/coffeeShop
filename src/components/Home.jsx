@@ -12,8 +12,9 @@ const Home = ({ setItem, itemz, deleteItem }) => {
           src='https://cdn2.f-cdn.com/contestentries/1157178/23836476/59f05d51e9719_thumb900.jpg'
           alt='coffee shop'
         />
+
+        <h3 style={{ margin: '10px' }}>Items we're selling</h3>
       </ListWrapper>
-      <h3 style={{ margin: '10px' }}>Items we're selling</h3>
       <ItemList
         setItem={setItem}
         itemz={itemz}
