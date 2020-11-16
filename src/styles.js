@@ -111,3 +111,13 @@ export const NavItem = styled(NavLink)`
     text-decoration: none;
   }
 `
+//button for the modal thing
+export const CreateButtonStyled = styled.button`
+  color: ${(props) => props.theme.headingColor};
+  background-color: ${(props) => props.theme.backgroundColor};
+
+  &:hover {
+    color: ${(props) => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.priceColor};
+  }
+`

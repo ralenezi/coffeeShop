@@ -1,25 +1,27 @@
 import { useState } from 'react'
 import SearchBar from './SearchBar.jsx'
 import SingleItem from './SingleItem'
+import AddButton from './buttons/AddButton.jsx'
 
-const ItemList = (props) => {
+const ItemList = ({ setItem, itemz, deleteItem, createItem }) => {
   //searching
   const [query, setQuery] = useState('')
 
   //returning
-  const itemList = props.itemz
+  const itemList = itemz
     .filter((item) => item.name.toLowerCase().includes(query))
     .map((item) => (
       <SingleItem
         itemObject={item}
         key={item.id}
-        setItem={props.setItem}
-        deleteItem={props.deleteItem}
+        setItem={setItem}
+        deleteItem={deleteItem}
       />
     ))
-
+  console.log(createItem)
   return (
     <div className='container'>
+      <AddButton createItem={createItem} />
       <SearchBar query={setQuery}></SearchBar>
       <div>{itemList}</div>
     </div>

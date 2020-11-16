@@ -4,11 +4,9 @@ import { DetailWrapper } from '../styles'
 import DeleteButton from './buttons/DeleteButton'
 
 const ItemDetail = (props) => {
-  // const item = props.items[0]
-  const handleDelete = (itemID) => {
-    props.deleteItem(itemID)
-    props.setItem()
-  }
+  //del
+  const handleDelete = (itemID) => props.deleteItem(itemID)
+
   //params thing
   const itemSlug = useParams().itemSlug
   const item = props.items.find((item) => item.slug === itemSlug)
@@ -22,7 +20,7 @@ const ItemDetail = (props) => {
         <p>{item.description}</p>
         <p>{item.price}$</p>
       </div>
-      <DeleteButton id={item.id} deleteItem={handleDelete} />
+      <DeleteButton id={item.id} deleteItem={() => handleDelete(item.id)} />
     </DetailWrapper>
   )
 }
