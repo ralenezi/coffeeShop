@@ -13,7 +13,7 @@ const SingleItem = (props) => {
         <p>{props.itemObject.price} </p>
       </div>
       <span>
-        <DeleteButton deleteItem={props.deleteItem} id={props.itemObject.id} />
+        <DeleteButton id={props.itemObject.id} />
       </span>
     </ItemWrapper>
   )

@@ -1,8 +1,5 @@
 import { useState } from 'react'
 import { Route, Switch } from 'react-router'
-import slugify from 'react-slugify'
-//data
-import items from './items'
 //components
 import ItemList from './components/ItemList.jsx'
 import ItemDetail from './components/ItemDetail.jsx'
@@ -31,44 +28,19 @@ function App() {
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light')
 
-  //real array now
-  const [itemz, setItemz] = useState(items)
-  const deleteItem = (itemID) =>
-    setItemz(itemz.filter((item) => item.id !== itemID))
-  //creating
-  const createItem = (newItem) => {
-    setItemz([...itemz, newItem])
-    newItem.id = itemz[itemz.length - 1].id + 1
-    newItem.slug = slugify(newItem.name)
-  }
-
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme}></NavBar>
       <Switch>
         <Route exact path='/items'>
-          <ItemList
-            setItem={setItemz}
-            itemz={itemz}
-            deleteItem={deleteItem}
-            createItem={createItem}
-          />
+          <ItemList />
         </Route>
         <Route path='/items/:itemSlug'>
-          <ItemDetail
-            items={itemz}
-            deleteItem={deleteItem}
-            setItem={setItemz}
-          />
+          <ItemDetail />
         </Route>
         <Route path='/'>
-          <Home
-            setItem={setItemz}
-            itemz={itemz}
-            deleteItem={deleteItem}
-            createItem={createItem}
-          />
+          <Home />
         </Route>
       </Switch>
     </ThemeProvider>

@@ -2,7 +2,7 @@ import React from 'react'
 import { ListWrapper } from '../styles'
 import ItemList from './ItemList'
 
-const Home = ({ setItem, itemz, deleteItem, createItem }) => {
+const Home = ({ setItem, itemz, deleteItem }) => {
   return (
     <div>
       <ListWrapper>
@@ -18,8 +18,7 @@ const Home = ({ setItem, itemz, deleteItem, createItem }) => {
       <ItemList
         setItem={setItem}
         itemz={itemz}
-        deleteItem={deleteItem}
-        createItem={createItem}></ItemList>
+        deleteItem={deleteItem}></ItemList>
     </div>
   )
 }

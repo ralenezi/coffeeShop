@@ -2,14 +2,13 @@ import React from 'react'
 import { Redirect, useParams } from 'react-router'
 import { DetailWrapper } from '../styles'
 import DeleteButton from './buttons/DeleteButton'
+import itemStore from '../stores/itemStore'
+import { observer } from 'mobx-react'
 
-const ItemDetail = (props) => {
-  //del
-  const handleDelete = (itemID) => props.deleteItem(itemID)
-
+const ItemDetail = () => {
   //params thing
   const itemSlug = useParams().itemSlug
-  const item = props.items.find((item) => item.slug === itemSlug)
+  const item = itemStore.items.find((item) => item.slug === itemSlug)
   if (!item) return <Redirect to='/items' />
   return (
     <DetailWrapper>
@@ -20,9 +19,9 @@ const ItemDetail = (props) => {
         <p>{item.description}</p>
         <p>{item.price}$</p>
       </div>
-      <DeleteButton id={item.id} deleteItem={() => handleDelete(item.id)} />
+      <DeleteButton id={item.id} />
     </DetailWrapper>
   )
 }
 
-export default ItemDetail
+export default observer(ItemDetail)

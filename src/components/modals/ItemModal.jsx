@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import Modal from 'react-modal'
 import { CreateButtonStyled } from '../../styles'
-import items from '../../items'
+import itemStore from '../../stores/itemStore'
 
-const ItemModal = ({ isOpen, closeModal, createItem }) => {
+const ItemModal = ({ isOpen, closeModal }) => {
   const [item, setItem] = useState({
     name: '',
     price: 0,
@@ -15,7 +15,7 @@ const ItemModal = ({ isOpen, closeModal, createItem }) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    createItem(item)
+    itemStore.createItem(item)
     closeModal()
   }
 
@@ -23,7 +23,6 @@ const ItemModal = ({ isOpen, closeModal, createItem }) => {
     <Modal
       isOpen={isOpen}
       onRequestClose={closeModal}
-      //   style={customStyles}
       contentLabel='Item Modal'>
       <h3>New Item</h3>
       <form>
