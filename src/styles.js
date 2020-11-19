@@ -115,9 +115,16 @@ export const NavItem = styled(NavLink)`
 export const CreateButtonStyled = styled.button`
   color: ${(props) => props.theme.headingColor};
   background-color: ${(props) => props.theme.backgroundColor};
+  cursor: pointer;
 
   &:hover {
     color: ${(props) => props.theme.backgroundColor};
     background-color: ${(props) => props.theme.priceColor};
   }
+`
+
+//item update button
+export const UpdateButtonStyled = styled.p`
+  color: ${(props) => props.theme.priceColor};
+  cursor: pointer;
 `

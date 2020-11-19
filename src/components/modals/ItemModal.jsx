@@ -3,19 +3,21 @@ import Modal from 'react-modal'
 import { CreateButtonStyled } from '../../styles'
 import itemStore from '../../stores/itemStore'
 
-const ItemModal = ({ isOpen, closeModal }) => {
-  const [item, setItem] = useState({
-    name: '',
-    price: 0,
-    description: '',
-    image: '',
-  })
+const ItemModal = ({ isOpen, closeModal, Olditem }) => {
+  const [item, setItem] = useState(
+    Olditem ?? {
+      name: '',
+      price: 0,
+      description: '',
+      image: '',
+    }
+  )
   const handleChange = (event) => {
     setItem({ ...item, [event.target.name]: event.target.value })
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    itemStore.createItem(item)
+    itemStore[Olditem ? 'updateItem' : 'createItem'](item)
     closeModal()
   }
 
@@ -34,6 +36,7 @@ const ItemModal = ({ isOpen, closeModal }) => {
               type='text'
               className='form-control'
               name='name'
+              value={item.name}
               onChange={handleChange}
             />
           </div>
@@ -44,6 +47,7 @@ const ItemModal = ({ isOpen, closeModal }) => {
               min='1'
               className='form-control'
               name='price'
+              value={item.price}
               onChange={handleChange}
             />
           </div>
@@ -54,6 +58,7 @@ const ItemModal = ({ isOpen, closeModal }) => {
             type='text'
             className='form-control'
             name='description'
+            value={item.description}
             onChange={handleChange}
           />
         </div>
@@ -63,11 +68,12 @@ const ItemModal = ({ isOpen, closeModal }) => {
             type='text'
             className='form-control'
             name='image'
+            value={item.image}
             onChange={handleChange}
           />
         </div>
         <CreateButtonStyled className='btn float-right' onClick={handleSubmit}>
-          Create
+          {Olditem ? 'Update' : 'Create'}
         </CreateButtonStyled>
       </form>
     </Modal>

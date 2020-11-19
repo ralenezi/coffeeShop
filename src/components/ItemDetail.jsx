@@ -4,6 +4,7 @@ import { DetailWrapper } from '../styles'
 import DeleteButton from './buttons/DeleteButton'
 import itemStore from '../stores/itemStore'
 import { observer } from 'mobx-react'
+import UpdateButton from './buttons/UpdateButton'
 
 const ItemDetail = () => {
   //params thing
@@ -19,6 +20,7 @@ const ItemDetail = () => {
         <p>{item.description}</p>
         <p>{item.price}$</p>
       </div>
+      <UpdateButton oldItem={item} />
       <DeleteButton id={item.id} />
     </DetailWrapper>
   )

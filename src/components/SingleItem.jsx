@@ -1,6 +1,8 @@
+import { observer } from 'mobx-react'
 import { Link } from 'react-router-dom'
 import { ItemWrapper, ItemImage } from '../styles'
 import DeleteButton from './buttons/DeleteButton'
+import UpdateButton from './buttons/UpdateButton'
 
 const SingleItem = (props) => {
   return (
@@ -13,10 +15,11 @@ const SingleItem = (props) => {
         <p>{props.itemObject.price} </p>
       </div>
       <span>
+        <UpdateButton Olditem={props.itemObject} />
         <DeleteButton id={props.itemObject.id} />
       </span>
     </ItemWrapper>
   )
 }
 
-export default SingleItem
+export default observer(SingleItem)

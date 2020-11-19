@@ -1,4 +1,4 @@
-const cookies = [
+const items = [
   {
     id: 0,
     name: 'Coffee',
@@ -28,4 +28,4 @@ const cookies = [
       'https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg',
   },
 ]
-export default cookies
+export default items
