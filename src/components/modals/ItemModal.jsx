@@ -3,9 +3,9 @@ import Modal from 'react-modal'
 import { CreateButtonStyled } from '../../styles'
 import itemStore from '../../stores/itemStore'
 
-const ItemModal = ({ isOpen, closeModal, Olditem }) => {
+const ItemModal = ({ isOpen, closeModal, oldItem }) => {
   const [item, setItem] = useState(
-    Olditem ?? {
+    oldItem ?? {
       name: '',
       price: 0,
       description: '',
@@ -17,7 +17,7 @@ const ItemModal = ({ isOpen, closeModal, Olditem }) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    itemStore[Olditem ? 'updateItem' : 'createItem'](item)
+    itemStore[oldItem ? 'updateItem' : 'createItem'](item)
     closeModal()
   }
 
@@ -73,7 +73,7 @@ const ItemModal = ({ isOpen, closeModal, Olditem }) => {
           />
         </div>
         <CreateButtonStyled className='btn float-right' onClick={handleSubmit}>
-          {Olditem ? 'Update' : 'Create'}
+          {oldItem ? 'Update' : 'Create'}
         </CreateButtonStyled>
       </form>
     </Modal>

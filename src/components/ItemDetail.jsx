@@ -8,7 +8,7 @@ import UpdateButton from './buttons/UpdateButton'
 
 const ItemDetail = () => {
   //params thing
-  const itemSlug = useParams().itemSlug
+  const { itemSlug } = useParams()
   const item = itemStore.items.find((item) => item.slug === itemSlug)
   if (!item) return <Redirect to='/items' />
   return (
@@ -19,8 +19,8 @@ const ItemDetail = () => {
       <div>
         <p>{item.description}</p>
         <p>{item.price}$</p>
+        <UpdateButton oldItem={item} />
       </div>
-      <UpdateButton oldItem={item} />
       <DeleteButton id={item.id} />
     </DetailWrapper>
   )

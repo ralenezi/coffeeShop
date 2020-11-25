@@ -31,6 +31,7 @@ export const ItemImage = styled.img`
 `
 // single item style.. item image, name and price
 export const ItemWrapper = styled.span`
+  margin-top: 10px;
   display: flex;
   color: black;
   font-weight: bold;

@@ -14,8 +14,13 @@ const SingleItem = (props) => {
         <h4>{props.itemObject.name}</h4>
         <p>{props.itemObject.price} </p>
       </div>
-      <span>
-        <UpdateButton Olditem={props.itemObject} />
+      <span
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }}>
+        <UpdateButton oldItem={props.itemObject} />
         <DeleteButton id={props.itemObject.id} />
       </span>
     </ItemWrapper>

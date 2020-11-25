@@ -1,5 +1,5 @@
 //mobx
-import { makeObservable, observable, action } from 'mobx'
+import { makeAutoObservable } from 'mobx'
 //data
 // import items from '../items'
 //stuff
@@ -9,34 +9,61 @@ import axios from 'axios'
 class ItemStore {
   items = []
   constructor() {
-    makeObservable(this, {
-      items: observable,
-      createItem: action,
-      deleteItem: action,
-      updateItem: action,
-    })
+    makeAutoObservable(this)
   }
   fetchItems = async () => {
-    const response = await axios.get('http://localhost:8000/items')
-    console.log('fetchCookies -> response', response)
-    this.items = response.data
+    try {
+      const response = await axios.get('http://localhost:8000/items')
+      console.log('fetchCookies -> response', response)
+      this.items = response.data
+    } catch (error) {
+      console.error(
+        '🚀 ~ file: itemStore.js ~ line 20 ~ ItemStore ~ fetchItems= ~ error',
+        error
+      )
+    }
   }
   //del
-  deleteItem = (itemID) =>
-    (this.items = this.items.filter((item) => item.id !== itemID))
+  deleteItem = async (itemID) => {
+    try {
+      await axios.delete(`http://localhost:8000/items/${itemID}`)
+      this.items = this.items.filter((item) => item.id !== itemID)
+    } catch (error) {
+      console.error(
+        '🚀 ~ file: itemStore.js ~ line 34 ~ ItemStore ~ deleteItem ~ error',
+        error
+      )
+    }
+  }
   //creating
-  createItem = (item) => {
-    item.id = this.items[this.items.length - 1].id + 1
-    item.slug = slugify(item.name)
-    this.items.push(item)
-    console.log('objectu', this.items)
+  createItem = async (item) => {
+    try {
+      const resp = await axios.post('http://localhost:8000/items', item)
+      this.items.push(resp.data)
+    } catch (error) {
+      console.error(
+        '🚀 ~ file: itemStore.js ~ line 47 ~ ItemStore ~ error',
+        error
+      )
+    }
   }
   //updating
-  updateItem = (updatedItem) => {
+  updateItem = async (updatedItem) => {
+    try {
+      await axios.put(
+        `http://localhost:8000/items/${updatedItem.id}`,
+        updatedItem
+      )
+      const item = this.items.find((item) => item.id === updatedItem.id)
+      for (const key in item) item[key] = updatedItem[key]
+      item.slug = slugify(item.name)
+    } catch (error) {
+      console.error(
+        '🚀 ~ file: itemStore.js ~ line 55 ~ ItemStore ~ updateItem= ~ error',
+        error
+      )
+    }
     console.log('ItemStore -> updateItem -> updatedItem', updatedItem)
-    const item = this.items.find((item) => item.id === updatedItem.id)
-    for (const key in item) item[key] = updatedItem[key]
-    item.slug = slugify(item.name)
   }
 }
 const itemStore = new ItemStore()
