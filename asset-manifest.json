@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/coffeeShop/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/coffeeShop/static/js/main.1120ccc0.chunk.js",
-    "main.js.map": "/coffeeShop/static/js/main.1120ccc0.chunk.js.map",
-    "runtime-main.js": "/coffeeShop/static/js/runtime-main.300f028a.js",
-    "runtime-main.js.map": "/coffeeShop/static/js/runtime-main.300f028a.js.map",
+    "main.js": "/coffeeShop/static/js/main.8c056ab7.chunk.js",
+    "main.js.map": "/coffeeShop/static/js/main.8c056ab7.chunk.js.map",
+    "runtime-main.js": "/coffeeShop/static/js/runtime-main.c8865593.js",
+    "runtime-main.js.map": "/coffeeShop/static/js/runtime-main.c8865593.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/coffeeShop/static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.faa3faee.chunk.js": "/coffeeShop/static/js/2.faa3faee.chunk.js",
-    "static/js/2.faa3faee.chunk.js.map": "/coffeeShop/static/js/2.faa3faee.chunk.js.map",
-    "static/js/3.8f3521c3.chunk.js": "/coffeeShop/static/js/3.8f3521c3.chunk.js",
-    "static/js/3.8f3521c3.chunk.js.map": "/coffeeShop/static/js/3.8f3521c3.chunk.js.map",
+    "static/js/2.b0be9a9a.chunk.js": "/coffeeShop/static/js/2.b0be9a9a.chunk.js",
+    "static/js/2.b0be9a9a.chunk.js.map": "/coffeeShop/static/js/2.b0be9a9a.chunk.js.map",
+    "static/js/3.c518029b.chunk.js": "/coffeeShop/static/js/3.c518029b.chunk.js",
+    "static/js/3.c518029b.chunk.js.map": "/coffeeShop/static/js/3.c518029b.chunk.js.map",
     "index.html": "/coffeeShop/index.html",
     "static/css/2.20aa2d7b.chunk.css.map": "/coffeeShop/static/css/2.20aa2d7b.chunk.css.map",
     "static/css/main.6dea0f05.chunk.css.map": "/coffeeShop/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.faa3faee.chunk.js.LICENSE.txt": "/coffeeShop/static/js/2.faa3faee.chunk.js.LICENSE.txt",
+    "static/js/2.b0be9a9a.chunk.js.LICENSE.txt": "/coffeeShop/static/js/2.b0be9a9a.chunk.js.LICENSE.txt",
     "static/media/dark-logo.2e110030.svg": "/coffeeShop/static/media/dark-logo.2e110030.svg",
     "static/media/light-logo.04939b50.svg": "/coffeeShop/static/media/light-logo.04939b50.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.300f028a.js",
+    "static/js/runtime-main.c8865593.js",
     "static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.faa3faee.chunk.js",
+    "static/js/2.b0be9a9a.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.1120ccc0.chunk.js"
+    "static/js/main.8c056ab7.chunk.js"
   ]
 }
